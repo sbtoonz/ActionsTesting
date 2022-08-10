@@ -3,13 +3,14 @@ using BepInEx;
 using BepInEx.Configuration;
 using HarmonyLib;
 using ServerSync;
+using UnityEngine;
 
-namespace ModFrame
+namespace ActionsMod
 {
     [BepInPlugin(ModGUID, ModName, ModVersion)]
-    public class NewMod : BaseUnityPlugin
+    public class ActionsMod : BaseUnityPlugin
     {
-        private const string ModName = "New Mod";
+        private const string ModName = "ActionsMod";
         private const string ModVersion = "1.0";
         private const string ModGUID = "some.new.guid";
         private static Harmony harmony = null!;
@@ -33,6 +34,7 @@ namespace ModFrame
             harmony.PatchAll(assembly);
             ServerConfigLocked = config("1 - General", "Lock Configuration", true, "If on, the configuration is locked and can be changed by server admins only.");
             configSync.AddLockingConfigEntry(ServerConfigLocked);
+            Debug.LogError("Hello from actions mod");
         }
     }
 }
