@@ -67,7 +67,7 @@ jobs:
         steamcmd +force_install_dir ~/VHINSTALL +login anonymous +app_update 896660 validate +exit
         mv ~/VHINSTALL/valheim_server_Data/ ~/VHINSTALL/valheim_Data/
         mv ~/BepInExRaw/BepInExPack_Valheim/* ~/VHINSTALL/
-        export $GamePath = ~/VHINSTALL/
+
         
     - name: Remove old publicized and mmhook dlls from cache
       if: steps.cachevalheim.outputs.cache-hit != 'true'
@@ -97,5 +97,6 @@ jobs:
         
     - name: Build
       run: |
+        export $GamePath = ~/VHINSTALL/
         msbuild ModFrame.sln /p:Configuration=Release
 
