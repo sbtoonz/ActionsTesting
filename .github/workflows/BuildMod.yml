@@ -30,27 +30,31 @@ jobs:
     - name: Install NuGet
       uses: nuget/setup-nuget@v1
   
-    #- name: Setup .NET
-    #  uses: actions/setup-dotnet@v2
-    #  with:
-     #   dotnet-version: 6.0.x
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+       dotnet-version: 6.0.x
+    
+    - name: Get build commands
+      run: |
+        sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+        echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+        wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+        sudo dpkg -i packages-microsoft-prod.deb
+        sudo apt-get update
+        sudo apt-get install -y mono-roslyn mono-complete mono-dbg msbuild unzip dirmngr dotnet-sdk-6.0 dotnet-runtime-6.0
+    
+    
     - name: Restore dependencies
       run: |
         dotnet restore
         nuget restore
         dotnet tool restore
+    
         
-    - name: Get build commands
-      run: |
-          sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-          echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-          wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-          sudo dpkg -i packages-microsoft-prod.deb
-          sudo apt-get update
-          sudo apt-get install -y mono-roslyn mono-complete mono-dbg msbuild unzip dirmngr dotnet-sdk-6.0 dotnet-runtime-6.0
+    
         
-        
-    - name: Remove old publicized and mmhook dlls from cache
+    - name: Remove old crap
       #if: steps.cachevalheim.outputs.cache-hit != 'true'
       run: |
         rm -rdf ~/VHINSTALL/
