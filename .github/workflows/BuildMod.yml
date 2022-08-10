@@ -97,7 +97,12 @@ jobs:
         mv ~/VHINSTALL/valheim_Data/Managed/*Publicized.dll ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/
         
         
-    - name: Build
-      run: |
-        msbuild ModFrame.sln /p:Configuration=Release
+    #- name: Build
+    #  run: |
+    #    msbuild ModFrame.sln /p:Configuration=Release
 
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Build app for release
+      run: msbuild ModFrame.sln -verbosity:diag -property::Configuration=Release
