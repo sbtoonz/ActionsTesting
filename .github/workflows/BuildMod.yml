@@ -78,5 +78,5 @@ jobs:
         
     - name: Build
       run: |
-        msbuild Modframe/Modframe.sln /p:Configuration=Release
+        msbuild ModFrame.sln /p:Configuration=Release
 
