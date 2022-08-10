@@ -44,35 +44,20 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y mono-roslyn mono-complete mono-dbg msbuild unzip dirmngr dotnet-sdk-6.0 dotnet-runtime-6.0
     
-    
     - name: Restore dependencies
       run: |
         dotnet restore
         nuget restore
-        dotnet tool restore
-    
-        
-    
-        
+        dotnet tool restore 
+                
     - name: Remove old crap
-      #if: steps.cachevalheim.outputs.cache-hit != 'true'
       run: |
         rm -rdf ~/VHINSTALL/
         
-    #- name: Cache Valheim
-     # id: cachevalheim
-      #uses: actions/cache@v2
-     # with:
-      #  path: ~/VHINSTALL
-      #  key: ${{ steps.valheimversion.outputs.valheimversion }}-${{ hashFiles('**/lockfiles') }}-BepInExPack-5.4.1901
-
     - name: Install SteamCMD
       uses: CyberAndrii/setup-steamcmd@v1
-
-
-        
+       
     - name: Prepare Valheim dependencies
-      #if: steps.cachevalheim.outputs.cache-hit != 'true'
       run: |
         wget -O bepinex.zip "https://valheim.thunderstore.io/package/download/denikson/BepInExPack_Valheim/5.4.1901/"
         unzip bepinex.zip -d ~/BepInExRaw
@@ -83,7 +68,6 @@ jobs:
         ln -s ~/VHINSTALL/ ~/.steam/steam/steamapps/common/Valheim
 
     - name: Do Publicize things
-      #if: steps.cachevalheim.outputs.cache-hit != 'true'
       run: |
         wget https://github.com/iRebbok/APublicizer/releases/download/1.0.3/native-linux-x64-release.tar.gz
         mkdir ~/assembpublicizer
@@ -103,12 +87,10 @@ jobs:
         
         
     - name: Build
-      #if: steps.cachevalheim.outputs.cache-hit != 'true'
       run: |
         msbuild ModFrame.sln /p:Configuration=Release
         
     - name: Upload a Build Artifact
-      #if: steps.cachevalheim.outputs.cache-hit != 'true'
       uses: actions/upload-artifact@v3.1.0
       with:
         # Artifact name
