@@ -92,17 +92,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="1.0.0" />
-
-    <!-- Publicize directly when referencing -->
-    <Reference Include=".../TestProject.dll" Publicize="true" />
-    <ProjectReference Include="../TestProject/TestProject.csproj" Publicize="true" />
-    <PackageReference Include="TestProject" Publicize="true" />
-
-    <!-- Publicize by assembly name -->
-    <Publicize Include="TestProject" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="ILRepack.targets" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
