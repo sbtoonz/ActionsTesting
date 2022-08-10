@@ -47,23 +47,26 @@ jobs:
           wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
           sudo dpkg -i packages-microsoft-prod.deb
           sudo apt-get update
-          sudo apt-get install -y mono-roslyn mono-complete mono-dbg msbuild unzip dirmngr dotnet-sdk-5.0 dotnet-runtime-5.0
-          sudo apt-get install -y dotnet-sdk-6.0
-          rm -rf ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies
-          rm -rf ~/VHINSTALL/valheim_server_Data/Managed/publicized_assemblies
-          rm -rf ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies
-          rm -rf ~/VHINSTALL/BepInEx/plugins/MMHOOK 
+          sudo apt-get install -y mono-roslyn mono-complete mono-dbg msbuild unzip dirmngr dotnet-sdk-5.0 dotnet-runtime-5.0 dotnet-sdk-6.0
         
-    - name: Cache Valheim
-      id: cachevalheim
-      uses: actions/cache@v2
-      with:
-        path: ~/VHINSTALL
-        key: ${{ steps.valheimversion.outputs.valheimversion }}-${{ hashFiles('**/lockfiles') }}-BepInExPack-5.4.1901
+        
+    - name: Remove old publicized and mmhook dlls from cache
+      #if: steps.cachevalheim.outputs.cache-hit != 'true'
+      run: |
+        rm -rdf ~/VHINSTALL/
+        
+    #- name: Cache Valheim
+     # id: cachevalheim
+      #uses: actions/cache@v2
+     # with:
+      #  path: ~/VHINSTALL
+      #  key: ${{ steps.valheimversion.outputs.valheimversion }}-${{ hashFiles('**/lockfiles') }}-BepInExPack-5.4.1901
 
     - name: Install SteamCMD
       uses: CyberAndrii/setup-steamcmd@v1
 
+
+        
     - name: Prepare Valheim dependencies
       #if: steps.cachevalheim.outputs.cache-hit != 'true'
       run: |
@@ -75,15 +78,6 @@ jobs:
         mkdir -p ~/.steam/steam/steamapps/common/
         ln -s ~/VHINSTALL/ ~/.steam/steam/steamapps/common/Valheim
 
-        
-    - name: Remove old publicized and mmhook dlls from cache
-      #if: steps.cachevalheim.outputs.cache-hit != 'true'
-      run: |
-        rm -rf ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies
-        rm -rf ~/VHINSTALL/valheim_server_Data/Managed/publicized_assemblies
-        rm -rf ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies
-        rm -rf ~/VHINSTALL/BepInEx/plugins/MMHOOK 
-        
     - name: Do Publicize things
       #if: steps.cachevalheim.outputs.cache-hit != 'true'
       run: |
