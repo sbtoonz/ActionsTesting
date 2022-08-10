@@ -38,7 +38,6 @@
     <When Condition="($(OS) == 'Unix' OR $(OS) == 'OSX') AND $(GamePath) == ''">
         <PropertyGroup>
             <GamePath Condition="!Exists('$(GamePath)')">$(HOME)/.steam/steam/steamapps/common/Valheim</GamePath>
-            <GamePath Condition="!Exists('$(GamePath)')">$(HOME)/VHINSTALL/Valheim</GamePath>
             <GamePath Condition="!Exists('$(GamePath)')">$(HOME)/Library/Application Support/Steam/steamapps/common/Valheim/Contents/MacOS</GamePath>
         </PropertyGroup>
     </When>
