@@ -77,7 +77,7 @@ jobs:
       run: |
         rm -rf ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies
         rm -rf ~/VHINSTALL/valheim_server_Data/Managed/publicized_assemblies
-        rm -rdf ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies
+        rm -rf ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies
         rm -rf ~/VHINSTALL/BepInEx/plugins/MMHOOK 
         
     - name: Do Publicize things
@@ -85,7 +85,6 @@ jobs:
         wget https://github.com/iRebbok/APublicizer/releases/download/1.0.3/native-linux-x64-release.tar.gz
         mkdir ~/assembpublicizer
         tar -xf native-linux-x64-release.tar.gz -C ~/assembpublicizer
-        rm -rdf ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies
         mkdir ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies
         ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/assembly_googleanalytics.dll
         ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/assembly_guiutils.dll
