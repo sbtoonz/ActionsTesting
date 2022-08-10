@@ -78,20 +78,20 @@ jobs:
     - name: Do Publicize things
       run: |
         wget https://github.com/iRebbok/APublicizer/releases/download/1.0.3/native-linux-x64-release.tar.gz
-        mkdir assembpulicizer
-        tar -xf native-linux-x64-release.tar.gz assembpulicizer
+        mkdir ~/assembpublicizer
+        tar -xf native-linux-x64-release.tar.gz ~/assembpublicizer
         mkdir ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies
-        assembpulicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_googleanalytics.dll
-        assembpulicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_guiutils.dll
-        assembpulicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_lux.dll
-        assembpulicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_postprocessing.dll
-        assembpulicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_simplemeshcombine.dll
-        assembpulicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_steamworks.dll
-        assembpulicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_sunshafts.dll
-        assembpulicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_utils.dll
-        assembpulicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_valheim.dll
-        assembpulicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/Assembly-CSharp.dll
-        mv ~/VHINSTALL/valheim_Data/Managed/*Publicized.dll ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_googleanalytics.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_guiutils.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_lux.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_postprocessing.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_simplemeshcombine.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_steamworks.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_sunshafts.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_utils.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_valheim.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/Assembly-CSharp.dll
+        mv ~/VHINSTALL/valheim_Data/Managed/*Publicized.dll ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/*publicized.dll
         
         
     - name: Build
