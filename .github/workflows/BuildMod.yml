@@ -81,16 +81,16 @@ jobs:
         mkdir ~/assembpublicizer
         tar -xf native-linux-x64-release.tar.gz -C ~/assembpublicizer
         mkdir ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies
-        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_googleanalytics.dll
-        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_guiutils.dll
-        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_lux.dll
-        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_postprocessing.dll
-        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_simplemeshcombine.dll
-        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_steamworks.dll
-        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_sunshafts.dll
-        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_utils.dll
-        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_valheim.dll
-        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/Assembly-CSharp.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/assembly_googleanalytics.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/assembly_guiutils.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/assembly_lux.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/assembly_postprocessing.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/assembly_simplemeshcombine.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/assembly_steamworks.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/assembly_sunshafts.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/assembly_utils.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/assembly_valheim.dll
+        ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/Assembly-CSharp.dll
         mv ~/VHINSTALL/valheim_Data/Managed/*Publicized.dll ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/*publicized.dll
         
         
