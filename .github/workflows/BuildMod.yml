@@ -97,6 +97,5 @@ jobs:
         
     - name: Build
       run: |
-        export $GamePath = ~/VHINSTALL/
         msbuild ModFrame.sln /p:Configuration=Release
 
