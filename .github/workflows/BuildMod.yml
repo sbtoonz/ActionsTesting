@@ -79,7 +79,7 @@ jobs:
       run: |
         wget https://github.com/iRebbok/APublicizer/releases/download/1.0.3/native-linux-x64-release.tar.gz
         mkdir ~/assembpublicizer
-        tar -xf native-linux-x64-release.tar.gz ~/assembpublicizer
+        tar -xf native-linux-x64-release.tar.gz -C ~/assembpublicizer
         mkdir ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies
         ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_googleanalytics.dll
         ~/assembpublicizer/APublicizer ~/VHINSTALL/valheim_Data/Managed/publicized_assemblies/assembly_guiutils.dll
